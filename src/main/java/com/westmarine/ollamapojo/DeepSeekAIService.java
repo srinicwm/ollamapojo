@@ -17,8 +17,9 @@ public class DeepSeekAIService {
         return chatClient.prompt(request).call().content();
     }
     
-    // Asynchronous/streaming method
+    // Asynchronous/streaming method for getting quick response
     public Flux<String> askToDeepSeekAIWithStream(String question) {
-        return chatClient.prompt(question).stream().content();
+        Flux<String> fluxContent = chatClient.prompt(question).stream().content();
+        return fluxContent;
     }
 }
